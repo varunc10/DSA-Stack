@@ -1,0 +1,20 @@
+vector<int> Solution::prevSmaller(vector<int> &arr) {
+    int n=arr.size();
+    stack<int> s;
+    s.push(arr[0]);
+    arr[0]=-1;
+	for(int i=1;i<n;i++){
+        int j=arr[i];
+        while(!s.empty()&&s.top()>=arr[i]){
+            s.pop();
+        }
+        if(s.empty()==true){
+            arr[i]=-1;
+        }
+        else{
+            arr[i]=s.top();
+        }
+        s.push(j);
+    }
+    return arr;
+}
