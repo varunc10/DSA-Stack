@@ -1,0 +1,22 @@
+int Solution::solve(string A) {
+    stack<int> s;
+    int count=0;
+    for(int i=0;i<A.size();i++){
+        if(A[i]=='('){
+            s.push(A[i]);
+        }
+        else{
+            if(!s.empty()){
+                s.pop();
+            }
+            else{
+                count++;
+            }
+        }
+    }
+    while(!s.empty()){
+        s.pop();
+        count++;
+    }
+    return count;
+}
